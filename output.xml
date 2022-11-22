@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221122 16:37:05.348" rpa="false" schemaversion="3">
+<suite id="s1" name="TC5 ComplexJSONValidation" source="/home/lpereira/Desktop/Dev/RobotFrameWorkTutorial/TC5_ComplexJSONValidation.robot">
+<test id="s1-t1" name="Get_countryInfo_Peru" line="13">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221122 16:37:05.559" level="INFO">Creating Session using : alias=mysession, url=https://restcountries.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221122 16:37:05.558" endtime="20221122 16:37:05.560"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>/v2/alpha/pe</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20221122 16:37:05.561" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20221122 16:37:05.960" level="INFO">GET Request : url=https://restcountries.com/v2/alpha/pe 
+ path_url=/v2/alpha/pe 
+ headers={'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221122 16:37:05.967" level="INFO">GET Response : url=https://restcountries.com/v2/alpha/pe 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 22 Nov 2022 19:37:05 GMT', 'Server': 'Apache/2.4.38 (Debian)', 'Cache-Control': 'public, immutable, max-age=31556926', 'Content-Type': 'application/json', 'content-encoding': 'gzip', 'content-length': '693', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive'} 
+ body={"name":"Peru","topLevelDomain":[".pe"],"alpha2Code":"PE","alpha3Code":"PER","callingCodes":["51"],"capital":"Lima","altSpellings":["PE","Republic of Peru"," República del Perú"],"subregion":"South America","region":"Americas","population":32971846,"latlng":[-10.0,-76.0],"demonym":"Peruvian","area":1285216.0,"gini":41.5,"timezones":["UTC-05:00"],"borders":["BOL","BRA","CHL","COL","ECU"],"nativeName":"Perú","numericCode":"604","flags":{"svg":"https://flagcdn.com/pe.svg","png":"https://flagcdn.com/w320/pe.png"},"currencies":[{"code":"PEN","name":"Peruvian sol","symbol":"S/."}],"languages":[{"iso639_1":"es","iso639_2":"spa","name":"Spanish","nativeName":"Español"}],"translations":{"br":"Perou","pt":"Peru","nl":"Peru","hr":"Peru","fa":"پرو","de":"Peru","es":"Perú","fr":"Pérou","ja":"ペルー","it":"Perù","hu":"Peru"},"flag":"https://flagcdn.com/pe.svg","regionalBlocs":[{"acronym":"PA","name":"Pacific Alliance","otherNames":["Alianza del Pacífico"]},{"acronym":"USAN","name":"Union of South American Nations","otherAcronyms":["UNASUR","UNASUL","UZAN"],"otherNames":["Unión de Naciones Suramericanas","União de Nações Sul-Americanas","Unie van Zuid-Amerikaanse Naties","South American Union"]}],"cioc":"PER","independent":true} 
+ </msg>
+<msg timestamp="20221122 16:37:05.968" level="INFO">/home/lpereira/.local/lib/python3.8/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restcountries.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221122 16:37:05.968" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221122 16:37:05.560" endtime="20221122 16:37:05.968"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${json_object}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20221122 16:37:05.969" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20221122 16:37:05.972" level="INFO">To JSON using : content={"name":"Peru","topLevelDomain":[".pe"],"alpha2Code":"PE","alpha3Code":"PER","callingCodes":["51"],"capital":"Lima","altSpellings":["PE","Republic of Peru"," República del Perú"],"subregion":"South America","region":"Americas","population":32971846,"latlng":[-10.0,-76.0],"demonym":"Peruvian","area":1285216.0,"gini":41.5,"timezones":["UTC-05:00"],"borders":["BOL","BRA","CHL","COL","ECU"],"nativeName":"Perú","numericCode":"604","flags":{"svg":"https://flagcdn.com/pe.svg","png":"https://flagcdn.com/w320/pe.png"},"currencies":[{"code":"PEN","name":"Peruvian sol","symbol":"S/."}],"languages":[{"iso639_1":"es","iso639_2":"spa","name":"Spanish","nativeName":"Español"}],"translations":{"br":"Perou","pt":"Peru","nl":"Peru","hr":"Peru","fa":"پرو","de":"Peru","es":"Perú","fr":"Pérou","ja":"ペルー","it":"Perù","hu":"Peru"},"flag":"https://flagcdn.com/pe.svg","regionalBlocs":[{"acronym":"PA","name":"Pacific Alliance","otherNames":["Alianza del Pacífico"]},{"acronym":"USAN","name":"Union of South American Nations","otherAcronyms":["UNASUR","UNASUL","UZAN"],"otherNames":["Unión de Naciones Suramericanas","União de Nações Sul-Americanas","Unie van Zuid-Amerikaanse Naties","South American Union"]}],"cioc":"PER","independent":true} </msg>
+<msg timestamp="20221122 16:37:05.972" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20221122 16:37:05.973" level="INFO">${json_object} = {'name': 'Peru', 'topLevelDomain': ['.pe'], 'alpha2Code': 'PE', 'alpha3Code': 'PER', 'callingCodes': ['51'], 'capital': 'Lima', 'altSpellings': ['PE', 'Republic of Peru', ' República del Perú'], 'subr...</msg>
+<status status="PASS" starttime="20221122 16:37:05.969" endtime="20221122 16:37:05.973"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${country_Name}</var>
+<arg>${json_object}</arg>
+<arg>$.name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221122 16:37:06.007" level="INFO">${country_Name} = ['Peru']</msg>
+<status status="PASS" starttime="20221122 16:37:05.973" endtime="20221122 16:37:06.008"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${country_Name[0]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221122 16:37:06.008" endtime="20221122 16:37:06.010"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${country_Name[0]}</arg>
+<arg>Peru</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221122 16:37:06.010" endtime="20221122 16:37:06.012"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${boarder}</var>
+<arg>${json_object}</arg>
+<arg>$.borders[0]</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221122 16:37:06.036" level="INFO">${boarder} = ['BOL']</msg>
+<status status="PASS" starttime="20221122 16:37:06.012" endtime="20221122 16:37:06.037"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${boarder[0]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221122 16:37:06.037" endtime="20221122 16:37:06.039"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${boarder[0]}</arg>
+<arg>BOL</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221122 16:37:06.039" endtime="20221122 16:37:06.041"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${boarders}</var>
+<arg>${json_object}</arg>
+<arg>$.borders</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221122 16:37:06.060" level="INFO">${boarders} = [['BOL', 'BRA', 'CHL', 'COL', 'ECU']]</msg>
+<status status="PASS" starttime="20221122 16:37:06.041" endtime="20221122 16:37:06.060"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${boarders[0]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221122 16:37:06.060" endtime="20221122 16:37:06.061"/>
+</kw>
+<kw name="Should Contain Any" library="BuiltIn">
+<arg>${boarders[0]}</arg>
+<arg>BOL</arg>
+<arg>BRA</arg>
+<arg>CHL</arg>
+<doc>Fails if ``container`` does not contain any of the ``*items``.</doc>
+<status status="PASS" starttime="20221122 16:37:06.062" endtime="20221122 16:37:06.062"/>
+</kw>
+<kw name="Should Not Contain Any" library="BuiltIn">
+<arg>${boarders[0]}</arg>
+<arg>abc</arg>
+<arg>xyz</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" starttime="20221122 16:37:06.063" endtime="20221122 16:37:06.064"/>
+</kw>
+<status status="PASS" starttime="20221122 16:37:05.557" endtime="20221122 16:37:06.064"/>
+</test>
+<doc>https://www.youtube.com/watch?v=ku6aw5n_a9Q&amp;list=PLUDwpEzHYYLvMLbma_Rp-6jrrpxkeH0VJ&amp;index=7</doc>
+<status status="PASS" starttime="20221122 16:37:05.352" endtime="20221122 16:37:06.065"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC5 ComplexJSONValidation">TC5 ComplexJSONValidation</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221122 16:37:05.561" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20221122 16:37:05.969" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>

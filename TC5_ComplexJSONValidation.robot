@@ -27,8 +27,9 @@ Get_countryInfo_Peru
 
     #Multiple data validation in array
     ${boarders}         Get Value From Json    ${json_object}    $.borders
-    Log To Console        ${boarders[0]}        
-    Should Contain Any    ${boarders[0]}        BOL    BRA    CHL   
+    Log To Console            ${boarders[0]}        
+    Should Contain Any        ${boarders[0]}        BOL    BRA    CHL
+    Should Not Contain Any    ${boarders[0]}        abc    xyz
 
     
 
