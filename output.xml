@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221129 16:01:38.184" rpa="false" schemaversion="3">
-<suite id="s1" name="IfElseDemo" source="/home/lpereira/Desktop/Dev/RobotFrameWorkTutorial/TestCases/IfElseDemo.robot">
-<test id="s1-t1" name="Test Case to demonstrate IF/ELSE in Robot Framework" line="10">
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221202 09:55:03.766" rpa="false" schemaversion="3">
+<suite id="s1" name="ForLoopDemo" source="/home/lpereira/Desktop/Dev/RobotFrameWorkTutorial/TestCases/ForLoopDemo.robot">
+<test id="s1-t1" name="Test Case to demonstrate FOR Loop in Robot Framework" line="10">
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20221202 09:55:03.946" endtime="20221202 09:55:03.947"/>
+</kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20221129 16:01:38.394" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
-<status status="PASS" starttime="20221129 16:01:38.393" endtime="20221129 16:01:41.341"/>
+<msg timestamp="20221202 09:55:03.948" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com.br/'.</msg>
+<status status="PASS" starttime="20221202 09:55:03.947" endtime="20221202 09:55:07.759"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20221129 16:01:41.341" endtime="20221129 16:01:41.447"/>
+<status status="PASS" starttime="20221202 09:55:07.760" endtime="20221202 09:55:07.866"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>id:user-name</arg>
-<arg>standard_user</arg>
+<arg>name:q</arg>
+<arg>RCV Academy</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221129 16:01:41.449" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<status status="PASS" starttime="20221129 16:01:41.448" endtime="20221129 16:01:41.584"/>
+<msg timestamp="20221202 09:55:07.868" level="INFO">Typing text 'RCV Academy' into text field 'name:q'.</msg>
+<status status="PASS" starttime="20221202 09:55:07.867" endtime="20221202 09:55:08.085"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id:password</arg>
-<arg>secret_sauce</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221129 16:01:41.585" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20221129 16:01:41.585" endtime="20221129 16:01:41.690"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name:btnK</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221202 09:55:08.087" level="INFO">Clicking element 'name:btnK'.</msg>
+<status status="PASS" starttime="20221202 09:55:08.086" endtime="20221202 09:55:12.352"/>
 </kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>id:login-button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20221129 16:01:41.691" level="INFO">Clicking button 'id:login-button'.</msg>
-<status status="PASS" starttime="20221129 16:01:41.690" endtime="20221129 16:01:41.816"/>
-</kw>
-<doc>Test Case to demonstrate IF/ELSE in Robot Framework</doc>
-<status status="PASS" starttime="20221129 16:01:38.392" endtime="20221129 16:01:41.817"/>
+<doc>Test Case to demonstrate FOR Loop in Robot Framework - https://www.youtube.com/watch?v=yrT46ur_MKE</doc>
+<status status="PASS" starttime="20221202 09:55:03.943" endtime="20221202 09:55:12.354"/>
 </test>
-<status status="PASS" starttime="20221129 16:01:38.189" endtime="20221129 16:01:41.818"/>
+<status status="PASS" starttime="20221202 09:55:03.769" endtime="20221202 09:55:12.357"/>
 </suite>
 <statistics>
 <total>
@@ -45,7 +43,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="IfElseDemo">IfElseDemo</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="ForLoopDemo">ForLoopDemo</stat>
 </suite>
 </statistics>
 <errors>
