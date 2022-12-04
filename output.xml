@@ -1,49 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221202 09:55:03.766" rpa="false" schemaversion="3">
-<suite id="s1" name="ForLoopDemo" source="/home/lpereira/Desktop/Dev/RobotFrameWorkTutorial/TestCases/ForLoopDemo.robot">
-<test id="s1-t1" name="Test Case to demonstrate FOR Loop in Robot Framework" line="10">
-<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
-<arg>5s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20221202 09:55:03.946" endtime="20221202 09:55:03.947"/>
-</kw>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221204 07:54:17.314" rpa="false" schemaversion="3">
+<suite id="s1" name="TableDemo01" source="/home/lpereira/Desktop/Dev/RobotFrameWorkTutorial/TestCases/TableDemo01.robot">
+<test id="s1-t1" name="TableValidations" line="6">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>${url}</arg>
-<arg>${browser}</arg>
+<arg>https://testautomationpractice.blogspot.com/</arg>
+<arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20221202 09:55:03.948" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com.br/'.</msg>
-<status status="PASS" starttime="20221202 09:55:03.947" endtime="20221202 09:55:07.759"/>
+<msg timestamp="20221204 07:54:17.474" level="INFO">Opening browser 'chrome' to base url 'https://testautomationpractice.blogspot.com/'.</msg>
+<status status="PASS" starttime="20221204 07:54:17.473" endtime="20221204 07:54:23.839"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20221202 09:55:07.760" endtime="20221202 09:55:07.866"/>
+<status status="PASS" starttime="20221204 07:54:23.840" endtime="20221204 07:54:23.947"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>name:q</arg>
-<arg>RCV Academy</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20221202 09:55:07.868" level="INFO">Typing text 'RCV Academy' into text field 'name:q'.</msg>
-<status status="PASS" starttime="20221202 09:55:07.867" endtime="20221202 09:55:08.085"/>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{table}</var>
+<arg>xpath://table[@name='BookTable']/tbody/tr/th</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20221204 07:54:23.962" level="INFO">@{table} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a8a97b6111dbba24515df412fd5dc523", element="4b6ff938-70ec-4ddd-a84f-76dd7bcfec77")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20221204 07:54:23.948" endtime="20221204 07:54:23.962"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>name:btnK</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20221202 09:55:08.087" level="INFO">Clicking element 'name:btnK'.</msg>
-<status status="PASS" starttime="20221202 09:55:08.086" endtime="20221202 09:55:12.352"/>
+<for flavor="IN">
+<var>${element}</var>
+<value>@{table}</value>
+<iter>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a8a97b6111dbba24515df412fd5dc523", element="4b6ff938-70ec-4ddd-a84f-76dd7bcfec77")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${dataTable}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221204 07:54:23.989" level="INFO">${dataTable} = BookName</msg>
+<status status="PASS" starttime="20221204 07:54:23.964" endtime="20221204 07:54:23.989"/>
 </kw>
-<doc>Test Case to demonstrate FOR Loop in Robot Framework - https://www.youtube.com/watch?v=yrT46ur_MKE</doc>
-<status status="PASS" starttime="20221202 09:55:03.943" endtime="20221202 09:55:12.354"/>
+<kw>
+<var>${dataTable}</var>
+<msg timestamp="20221204 07:54:23.990" level="FAIL">Keyword name cannot be empty.</msg>
+<status status="FAIL" starttime="20221204 07:54:23.990" endtime="20221204 07:54:23.991"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${dataTable}</arg>
+<arg>BookName</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20221204 07:54:23.992" endtime="20221204 07:54:23.992"/>
+</kw>
+<status status="FAIL" starttime="20221204 07:54:23.964" endtime="20221204 07:54:23.992"/>
+</iter>
+<status status="FAIL" starttime="20221204 07:54:23.963" endtime="20221204 07:54:23.993"/>
+</for>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20221204 07:54:23.994" endtime="20221204 07:54:23.995"/>
+</kw>
+<doc>Part 17- How to Handle Web/HTML Table in Robot Framework | Selenium with Python - https://www.youtube.com/watch?v=iYXl3MrRHDI&amp;list=PLUDwpEzHYYLsCHiiihnwl3L0xPspL7BPG&amp;index=18</doc>
+<status status="FAIL" starttime="20221204 07:54:17.472" endtime="20221204 07:54:23.996">Keyword name cannot be empty.</status>
 </test>
-<status status="PASS" starttime="20221202 09:55:03.769" endtime="20221202 09:55:12.357"/>
+<status status="FAIL" starttime="20221204 07:54:17.318" endtime="20221204 07:54:23.998"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="ForLoopDemo">ForLoopDemo</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="TableDemo01">TableDemo01</stat>
 </suite>
 </statistics>
 <errors>
