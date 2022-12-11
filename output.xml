@@ -1,69 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221204 07:54:17.314" rpa="false" schemaversion="3">
-<suite id="s1" name="TableDemo01" source="/home/lpereira/Desktop/Dev/RobotFrameWorkTutorial/TestCases/TableDemo01.robot">
-<test id="s1-t1" name="TableValidations" line="6">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>https://testautomationpractice.blogspot.com/</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20221204 07:54:17.474" level="INFO">Opening browser 'chrome' to base url 'https://testautomationpractice.blogspot.com/'.</msg>
-<status status="PASS" starttime="20221204 07:54:17.473" endtime="20221204 07:54:23.839"/>
+<robot generator="Robot 5.0.1 (Python 3.8.10 on linux)" generated="20221211 11:11:14.494" rpa="false" schemaversion="3">
+<suite id="s1" name="Variables ListsAndDictionaries" source="/home/lpereira/Desktop/Dev/RobotFrameWorkTutorial/TestCases/Variables_ListsAndDictionaries.robot">
+<test id="s1-t1" name="Teste case 2" line="24">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${DICTIONARY}[username]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221211 11:11:14.552" endtime="20221211 11:11:14.553"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20221204 07:54:23.840" endtime="20221204 07:54:23.947"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${DICTIONARY}[password]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221211 11:11:14.554" endtime="20221211 11:11:14.555"/>
 </kw>
-<kw name="Get WebElements" library="SeleniumLibrary">
-<var>@{table}</var>
-<arg>xpath://table[@name='BookTable']/tbody/tr/th</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<msg timestamp="20221204 07:54:23.962" level="INFO">@{table} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a8a97b6111dbba24515df412fd5dc523", element="4b6ff938-70ec-4ddd-a84f-76dd7bcfec77")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
-<status status="PASS" starttime="20221204 07:54:23.948" endtime="20221204 07:54:23.962"/>
-</kw>
-<for flavor="IN">
-<var>${element}</var>
-<value>@{table}</value>
-<iter>
-<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a8a97b6111dbba24515df412fd5dc523", element="4b6ff938-70ec-4ddd-a84f-76dd7bcfec77")&gt;</var>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${dataTable}</var>
-<arg>${element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20221204 07:54:23.989" level="INFO">${dataTable} = BookName</msg>
-<status status="PASS" starttime="20221204 07:54:23.964" endtime="20221204 07:54:23.989"/>
-</kw>
-<kw>
-<var>${dataTable}</var>
-<msg timestamp="20221204 07:54:23.990" level="FAIL">Keyword name cannot be empty.</msg>
-<status status="FAIL" starttime="20221204 07:54:23.990" endtime="20221204 07:54:23.991"/>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${dataTable}</arg>
-<arg>BookName</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="NOT RUN" starttime="20221204 07:54:23.992" endtime="20221204 07:54:23.992"/>
-</kw>
-<status status="FAIL" starttime="20221204 07:54:23.964" endtime="20221204 07:54:23.992"/>
-</iter>
-<status status="FAIL" starttime="20221204 07:54:23.963" endtime="20221204 07:54:23.993"/>
-</for>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" starttime="20221204 07:54:23.994" endtime="20221204 07:54:23.995"/>
-</kw>
-<doc>Part 17- How to Handle Web/HTML Table in Robot Framework | Selenium with Python - https://www.youtube.com/watch?v=iYXl3MrRHDI&amp;list=PLUDwpEzHYYLsCHiiihnwl3L0xPspL7BPG&amp;index=18</doc>
-<status status="FAIL" starttime="20221204 07:54:17.472" endtime="20221204 07:54:23.996">Keyword name cannot be empty.</status>
+<status status="PASS" starttime="20221211 11:11:14.551" endtime="20221211 11:11:14.557"/>
 </test>
-<status status="FAIL" starttime="20221204 07:54:17.318" endtime="20221204 07:54:23.998"/>
+<doc>Robot Framework Tutorial Part 9 - Variables, Lists And Dictionaries - https://www.youtube.com/watch?v=HU0C9r2Ghwk&amp;t=169s</doc>
+<status status="PASS" starttime="20221211 11:11:14.499" endtime="20221211 11:11:14.559"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TableDemo01">TableDemo01</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Variables ListsAndDictionaries">Variables ListsAndDictionaries</stat>
 </suite>
 </statistics>
 <errors>
